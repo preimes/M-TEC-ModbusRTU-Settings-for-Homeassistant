@@ -1,7 +1,7 @@
 modbus:  
   - name: M-TEC
     type: rtuovertcp
-    host: YOUR IP!!!
+    host: IP_OF_YOUR_INVERTER!
     port: 5743
     timeout: 5
     # type: serial
@@ -13,7 +13,7 @@ modbus:
     # stopbits: 1
     switches:
       - name:  Grid Injection Power Limit Switch  #0:Off;1:ON
-        unique_id: _grid_injection_power_limit_switch #RW
+        unique_id: grid_injection_power_limit_switch #RW
         slave: 252
         address: 25100
         write_type: holding
@@ -26,7 +26,7 @@ modbus:
             state_on: 1
             state_off: 0
       - name:  Off-grid Battery SOC Protection Switch  #0:Off;1:ON
-        unique_id: _off_grid_battery_soc_protection_switch #RW
+        unique_id: off_grid_battery_soc_protection_switch #RW
         slave: 252
         address: 52504
         write_type: holding
@@ -39,7 +39,7 @@ modbus:
             state_on: 1
             state_off: 0
       - name:  On-grid Battery SOC Protection Switch  #0:Off;1:ON
-        unique_id: _on_grid_battery_soc_protection_switch #RW
+        unique_id: on_grid_battery_soc_protection_switch #RW
         slave: 252
         address: 52502
         write_type: holding
@@ -52,7 +52,7 @@ modbus:
             state_on: 1
             state_off: 0
       - name:  Priority Power Output Setting  #0：PV Output Priority ; 1：Battery Output Priority
-        unique_id: _priority_power_output_setting #RW
+        unique_id: priority_power_output_setting #RW
         slave: 252
         address: 50210
         write_type: holding
@@ -68,16 +68,16 @@ modbus:
 
     sensors:
       - name:  Inverter SN
-        unique_id: _inverter_sn
+        unique_id: inverter_sn
         slave: 252
         address: 10000
         input_type: holding
         count: 10
         data_type: string
         scan_interval: 86400
-        lazy_error_count: 10
+        #lazy_error_count: 10
       - name:  Firmware Version1
-        unique_id: _firmware_version1
+        unique_id: firmware_version1
         slave: 252
         address: 10011
         input_type: holding
@@ -85,9 +85,9 @@ modbus:
         data_type: custom
         structure: ">BBBB"
         scan_interval: 600
-        lazy_error_count: 10
+        #lazy_error_count: 10
       - name:  Firmware Version2
-        unique_id: _firmware_version2
+        unique_id: firmware_version2
         slave: 252
         address: 10013
         input_type: holding
@@ -95,18 +95,18 @@ modbus:
         data_type: custom
         structure: ">BBBB"
         scan_interval: 60
-        lazy_error_count: 10
+        #lazy_error_count: 10
 
       - name:  Inverter Running Status #0:wait, wait for on-grid 1:check, self-check 2:On Grid 3:fault 4:flash, firmware update 5.Off Grid
-        unique_id: _inverter_running_status
+        unique_id: inverter_running_status
         slave: 252
         address: 10105
         input_type: holding
         data_type: int16
         scan_interval: 10
-        lazy_error_count: 10
+        #lazy_error_count: 10
       - name:  Phase A Power on Meter
-        unique_id: _phase_a_power_on_meter
+        unique_id: phase_a_power_on_meter
         slave: 252
         address: 10994
         input_type: holding
@@ -119,7 +119,7 @@ modbus:
         scan_interval: 10
         lazy_error_count: 10
       - name:  Phase B Power on Meter
-        unique_id: _phase_b_power_on_meter
+        unique_id: phase_b_power_on_meter
         slave: 252
         address: 10996
         input_type: holding
@@ -132,7 +132,7 @@ modbus:
         scan_interval: 10
         lazy_error_count: 10
       - name:  Phase C Power on Meter
-        unique_id: _phase_c_power_on_meter
+        unique_id: phase_c_power_on_meter
         slave: 252
         address: 10998
         input_type: holding
@@ -145,7 +145,7 @@ modbus:
         scan_interval: 10
         lazy_error_count: 10
       - name:  Total Power on Meter        #Grid power
-        unique_id: _total_power_on_meter
+        unique_id: total_power_on_meter
         slave: 252
         address: 11000
         input_type: holding
@@ -159,7 +159,7 @@ modbus:
         lazy_error_count: 10
 
       - name:  Grid Injection Energy on that day   #export/day
-        unique_id: _grid_injection_energy_on_that_day
+        unique_id: grid_injection_energy_on_that_day
         slave: 252
         address: 31000
         scale: 0.1
@@ -172,7 +172,7 @@ modbus:
         scan_interval: 60
         lazy_error_count: 10
       - name:  Grid Purchasing Energy on that day
-        unique_id: _grid_purchasing_energy_on_that_day
+        unique_id: grid_purchasing_energy_on_that_day
         slave: 252
         address: 31001
         scale: 0.1
@@ -185,7 +185,7 @@ modbus:
         scan_interval: 60
         lazy_error_count: 10
       - name:  Backup Output Energy on that day
-        unique_id: _backup_output_energy_on_that_day
+        unique_id: backup_output_energy_on_that_day
         slave: 252
         address: 31002
         scale: 0.1
@@ -198,7 +198,7 @@ modbus:
         scan_interval: 300
         lazy_error_count: 10
       - name:  Battery Charge Energy on that day
-        unique_id: _battery_charge_energy_on_that_day
+        unique_id: battery_charge_energy_on_that_day
         slave: 252
         address: 31003
         scale: 0.1
@@ -211,7 +211,7 @@ modbus:
         scan_interval: 60
         lazy_error_count: 10
       - name:  Battery Discharge Energy on that day
-        unique_id: _battery_discharge_energy_on_that_day
+        unique_id: battery_discharge_energy_on_that_day
         slave: 252
         address: 31004
         scale: 0.1
@@ -224,7 +224,7 @@ modbus:
         scan_interval: 60
         lazy_error_count: 10
       - name:  PV Generation Energy on that day    #E-today from GUI
-        unique_id: _pv_generation_energy_on_that_day
+        unique_id: pv_generation_energy_on_that_day
         slave: 252
         address: 31005
         scale: 0.1
@@ -237,7 +237,7 @@ modbus:
         scan_interval: 60
         lazy_error_count: 10
       - name:  Loading Energy on that day
-        unique_id: _loading_energy_on_that_day
+        unique_id: loading_energy_on_that_day
         slave: 252
         address: 31006
         scale: 0.1
@@ -250,7 +250,7 @@ modbus:
         scan_interval: 300
         lazy_error_count: 10
       - name:  Energy Purchased from Grid on that day  #on inverter side
-        unique_id: _energy_purchased_from_grid_on_that_day
+        unique_id: energy_purchased_from_grid_on_that_day
         slave: 252
         address: 31008
         scale: 0.1
@@ -263,7 +263,7 @@ modbus:
         scan_interval: 300
         lazy_error_count: 10
       - name:  Total Energy injected to grid
-        unique_id: _total_energy_injected_to_grid
+        unique_id: total_energy_injected_to_grid
         slave: 252
         address: 31102
         scale: 0.1
@@ -276,7 +276,7 @@ modbus:
         scan_interval: 600
         lazy_error_count: 10
       - name:  Total Energy Purchased from Grid from Meter
-        unique_id: _total_energy_purchased_from_grid_from_meter
+        unique_id: total_energy_purchased_from_grid_from_meter
         slave: 252
         address: 31104
         scale: 0.1
@@ -289,7 +289,7 @@ modbus:
         scan_interval: 600
         lazy_error_count: 10
       - name:  Total Output Energy on backup port
-        unique_id: _total_output_energy_on_backup_port
+        unique_id: total_output_energy_on_backup_port
         slave: 252
         address: 31106
         scale: 0.1
@@ -302,7 +302,7 @@ modbus:
         scan_interval: 3600
         lazy_error_count: 10
       - name:  Total Energy Charged to Battery
-        unique_id: _total_energy_charged_to_battery
+        unique_id: total_energy_charged_to_battery
         slave: 252
         address: 31108
         scale: 0.1
@@ -315,7 +315,7 @@ modbus:
         scan_interval: 600
         lazy_error_count: 10
       - name:  Total Energy Discharged from Battery
-        unique_id: _total_energy_discharged_from_battery
+        unique_id: total_energy_discharged_from_battery
         slave: 252
         address: 31110
         scale: 0.1
@@ -328,7 +328,7 @@ modbus:
         scan_interval: 600
         lazy_error_count: 10
       - name:  Total PV Generation
-        unique_id: _total_pv_generation
+        unique_id: total_pv_generation
         slave: 252
         address: 31112
         scale: 0.1
@@ -341,7 +341,7 @@ modbus:
         scan_interval: 600
         lazy_error_count: 10
       - name:  Total Loading Energy consumed at grid side  #totoal load consumption
-        unique_id: _total_loading_energy_consumed_at_grid_side
+        unique_id: total_loading_energy_consumed_at_grid_side
         slave: 252
         address: 31114
         scale: 0.1
@@ -354,7 +354,7 @@ modbus:
         scan_interval: 3600
         lazy_error_count: 10
       - name:  Total Energy Purchased from Grid at inverter side
-        unique_id: _total_energy_purchased_from_grid_at_inverter_side
+        unique_id: total_energy_purchased_from_grid_at_inverter_side
         slave: 252
         address: 31118
         scale: 0.1
@@ -368,7 +368,7 @@ modbus:
         lazy_error_count: 10
 
       - name:  Total Grid-Injection Energy on Meter
-        unique_id: _total_grid_injection_energy_on_meter
+        unique_id: total_grid_injection_energy_on_meter
         slave: 252
         address: 11002
         input_type: holding
@@ -381,7 +381,7 @@ modbus:
         scan_interval: 3600
         lazy_error_count: 10
       - name:  Total Purchasing Energy from Grid on Meter
-        unique_id: _total_purchasing_energy_from_grid_on_meter
+        unique_id: total_purchasing_energy_from_grid_on_meter
         slave: 252
         address: 11004
         input_type: holding
@@ -395,7 +395,7 @@ modbus:
         lazy_error_count: 10
 
       - name:  Grid Lines A/B Voltage
-        unique_id: _grid_lines_a_b_voltage
+        unique_id: grid_lines_a_b_voltage
         slave: 252
         address: 11006
         input_type: holding
@@ -408,7 +408,7 @@ modbus:
         scan_interval: 60
         lazy_error_count: 10
       - name:  Grid Lines B/C Voltage
-        unique_id: _grid_lines_b_c_voltage
+        unique_id: grid_lines_b_c_voltage
         slave: 252
         address: 11007
         input_type: holding
@@ -421,7 +421,7 @@ modbus:
         scan_interval: 60
         lazy_error_count: 10
       - name:  Grid Lines C/A Voltage
-        unique_id: _grid_lines_c_a_voltage
+        unique_id: grid_lines_c_a_voltage
         slave: 252
         address: 11008
         input_type: holding
@@ -434,7 +434,7 @@ modbus:
         scan_interval: 60
         lazy_error_count: 10
       - name:  Grid Phase A Voltage
-        unique_id: _grid_phase_a_voltage
+        unique_id: grid_phase_a_voltage
         slave: 252
         address: 11009
         input_type: holding
@@ -447,7 +447,7 @@ modbus:
         scan_interval: 60
         lazy_error_count: 10
       - name:  Grid Phase B Voltage
-        unique_id: _grid_phase_b_voltage
+        unique_id: grid_phase_b_voltage
         slave: 252
         address: 11011
         input_type: holding
@@ -460,7 +460,7 @@ modbus:
         scan_interval: 60
         lazy_error_count: 10
       - name:  Grid Phase C Voltage
-        unique_id: _grid_pase_c_voltage
+        unique_id: grid_pase_c_voltage
         slave: 252
         address: 11013
         input_type: holding
@@ -473,7 +473,7 @@ modbus:
         scan_interval: 60
         lazy_error_count: 10
       - name:  Grid Phase A Current
-        unique_id: _grid_phase_a_current
+        unique_id: grid_phase_a_current
         slave: 252
         address: 11010
         input_type: holding
@@ -486,7 +486,7 @@ modbus:
         scan_interval: 60
         lazy_error_count: 10
       - name:  Grid Phase B Current
-        unique_id: _grid_phase_b_current
+        unique_id: grid_phase_b_current
         slave: 252
         address: 11012
         input_type: holding
@@ -499,7 +499,7 @@ modbus:
         scan_interval: 60
         lazy_error_count: 10
       - name:  Grid Phase C Current
-        unique_id: _grid_phase_c_current
+        unique_id: grid_phase_c_current
         slave: 252
         address: 11014
         input_type: holding
@@ -512,7 +512,7 @@ modbus:
         scan_interval: 60
         lazy_error_count: 10
       - name:  P AC
-        unique_id: _p_ac
+        unique_id: p_ac
         slave: 252
         address: 11016
         input_type: holding
@@ -525,7 +525,7 @@ modbus:
         scan_interval: 10
         lazy_error_count: 10
       - name:  Total PV Generation on that day  #energy today
-        unique_id: _total_pv_generation_on_that_day
+        unique_id: total_pv_generation_on_that_day
         slave: 252
         address: 11018
         input_type: holding
@@ -538,7 +538,7 @@ modbus:
         scan_interval: 1800
         lazy_error_count: 10
       - name:  Total PV Generation from Installation  #energy total
-        unique_id: _total_pv_generation_from_installation
+        unique_id: total_pv_generation_from_installation
         slave: 252
         address: 11020
         input_type: holding
@@ -551,7 +551,7 @@ modbus:
         scan_interval: 3600
         lazy_error_count: 10
       - name:  PV Input Total Power        #PV power, panel actual power
-        unique_id: _pv_input_total_power
+        unique_id: pv_input_total_power
         slave: 252
         address: 11028
         input_type: holding
@@ -564,7 +564,7 @@ modbus:
         scan_interval: 10
         lazy_error_count: 10
       - name:  Temperature Sensor 1
-        unique_id: _temperature_sensor_1
+        unique_id: temperature_sensor_1
         slave: 252
         address: 11032
         input_type: holding
@@ -577,7 +577,7 @@ modbus:
         scan_interval: 600
         lazy_error_count: 10
       - name:  Temperature Sensor 2
-        unique_id: _temperature_sensor_2
+        unique_id: temperature_sensor_2
         slave: 252
         address: 11033
         input_type: holding
@@ -590,7 +590,7 @@ modbus:
         scan_interval: 600
         lazy_error_count: 10
       - name:  Temperature Sensor 3
-        unique_id: _temperature_sensor_3
+        unique_id: temperature_sensor_3
         slave: 252
         address: 11034
         input_type: holding
@@ -603,7 +603,7 @@ modbus:
         scan_interval: 600
         lazy_error_count: 10
       - name:  Temperature Sensor 4
-        unique_id: _temperature_sensor_4
+        unique_id: temperature_sensor_4
         slave: 252
         address: 11035
         input_type: holding
@@ -616,7 +616,7 @@ modbus:
         scan_interval: 600
         lazy_error_count: 10
       - name:  PV1 Voltage
-        unique_id: _pv1_voltage
+        unique_id: pv1_voltage
         slave: 252
         address: 11038
         input_type: holding
@@ -629,7 +629,7 @@ modbus:
         scan_interval: 300
         lazy_error_count: 10
       - name:  PV2 Voltage
-        unique_id: _pv2_voltage
+        unique_id: pv2_voltage
         slave: 252
         address: 11040
         input_type: holding
@@ -642,7 +642,7 @@ modbus:
         scan_interval: 300
         lazy_error_count: 10
       - name:  PV1 Current
-        unique_id: _pv1_current
+        unique_id: pv1_current
         slave: 252
         address: 11039
         input_type: holding
@@ -655,7 +655,7 @@ modbus:
         scan_interval: 300
         lazy_error_count: 10
       - name:  PV2 Current
-        unique_id: _pv2_current
+        unique_id: pv2_current
         slave: 252
         address: 11041
         input_type: holding
@@ -668,7 +668,7 @@ modbus:
         scan_interval: 300
         lazy_error_count: 10
       - name:  PV1 Input Power
-        unique_id: _pv1_input_power
+        unique_id: pv1_input_power
         slave: 252
         address: 11062
         input_type: holding
@@ -681,7 +681,7 @@ modbus:
         scan_interval: 10
         lazy_error_count: 10
       - name:  PV2 Input Power
-        unique_id: _pv2_input_power
+        unique_id: pv2_input_power
         slave: 252
         address: 11064
         input_type: holding
@@ -694,7 +694,7 @@ modbus:
         scan_interval: 10
         lazy_error_count: 10
       - name:  ARM Fault Flag1 #Table 3.3 Troubleshooting
-        unique_id: _arm_fault_flag1
+        unique_id: arm_fault_flag1
         slave: 252
         address: 18000
         input_type: holding
@@ -702,7 +702,7 @@ modbus:
         scan_interval: 60
         lazy_error_count: 10
       - name:  Fault Flag1 #Table 3.3 Troubleshooting
-        unique_id: _fault_flag1
+        unique_id: fault_flag1
         slave: 252
         address: 10112
         input_type: holding
@@ -710,7 +710,7 @@ modbus:
         scan_interval: 60
         lazy_error_count: 10
       - name:  Fault Flag2 #Table 3.3 Troubleshooting
-        unique_id: _fault_flag2
+        unique_id: fault_flag2
         slave: 252
         address: 10114
         input_type: holding
@@ -718,7 +718,7 @@ modbus:
         scan_interval: 60
         lazy_error_count: 10
       - name:  Fault Flag3 #Table 3.3 Troubleshooting
-        unique_id: _fault_flag3
+        unique_id: fault_flag3
         slave: 252
         address: 10116
         input_type: holding
@@ -727,7 +727,7 @@ modbus:
         lazy_error_count: 10
         
       - name:  Total Backup P          #load power, total active power
-        unique_id: _total_backup_p
+        unique_id: total_backup_p
         slave: 252
         address: 30230
         input_type: holding
@@ -741,7 +741,7 @@ modbus:
         lazy_error_count: 10
 
       - name:  Battery V #DC Voltage
-        unique_id: _battery_v
+        unique_id: battery_v
         slave: 252
         address: 30254
         input_type: holding
@@ -754,7 +754,7 @@ modbus:
         scan_interval: 300
         lazy_error_count: 10
       - name:  Battery I #DC Current
-        unique_id: _battery_i
+        unique_id: battery_i
         slave: 252
         address: 30255
         input_type: holding
@@ -767,7 +767,7 @@ modbus:
         scan_interval: 300
         lazy_error_count: 10
       - name:  Battery P           #Battery Power
-        unique_id: _battery_p
+        unique_id: battery_p
         slave: 252
         address: 30258
         input_type: holding
@@ -780,7 +780,7 @@ modbus:
         scan_interval: 10
         lazy_error_count: 10
       - name:  Battery Mode #0:discharge;1:charge
-        unique_id: _battery_mode
+        unique_id: battery_mode
         slave: 252
         address: 30256
         input_type: holding
@@ -789,7 +789,7 @@ modbus:
         lazy_error_count: 10
 #BMS registers
       - name:  BMS Software Version
-        unique_id: _bms_software_version
+        unique_id: bms_software_version
         slave: 252
         address: 32003
         input_type: holding
@@ -797,7 +797,7 @@ modbus:
         scan_interval: 600
         lazy_error_count: 10
       - name:  BMS Hardware Version
-        unique_id: _bms_hardware_version
+        unique_id: bms_hardware_version
         slave: 252
         address: 32004
         input_type: holding
@@ -805,7 +805,7 @@ modbus:
         scan_interval: 600
         lazy_error_count: 10
       - name:  Battery SOC
-        unique_id: _battery_soc
+        unique_id: battery_soc
         slave: 252
         address: 33000
         input_type: holding
@@ -818,7 +818,7 @@ modbus:
         scan_interval: 60
         lazy_error_count: 10
       - name:  Battery SOH
-        unique_id: _battery_soh
+        unique_id: battery_soh
         slave: 252
         address: 33001
         input_type: holding
@@ -831,7 +831,7 @@ modbus:
         scan_interval: 3600
         lazy_error_count: 10
       - name:  BMS Status
-        unique_id: _bms_status
+        unique_id: bms_status
         slave: 252
         address: 33002
         input_type: holding
@@ -839,7 +839,7 @@ modbus:
         scan_interval: 60
         lazy_error_count: 10
       - name:  BMS Pack Temperature
-        unique_id: _bms_pack_temperature
+        unique_id: bms_pack_temperature
         slave: 252
         address: 33003
         input_type: holding
@@ -852,7 +852,7 @@ modbus:
         scan_interval: 300
         lazy_error_count: 10
       - name:  BMS Error Code
-        unique_id: _bms_error_code
+        unique_id: bms_error_code
         slave: 252
         address: 33016
         input_type: holding
@@ -860,7 +860,7 @@ modbus:
         scan_interval: 60
         lazy_error_count: 10
       - name:  BMS Warn Code
-        unique_id: _bms_warn_code
+        unique_id: bms_warn_code
         slave: 252
         address: 33018
         input_type: holding
@@ -870,7 +870,7 @@ modbus:
 
 #RW values
       - name:  Hybrid Inverter Working Mode Setting  #257=General mode; 258=Economic mode; 259=UPS mode; 512=Off grid mode
-        unique_id: _hybrid_inverter_working_mode_setting #RW
+        unique_id: hybrid_inverter_working_mode_setting #RW
         slave: 252
         address: 50000
         input_type: holding
@@ -879,7 +879,7 @@ modbus:
         lazy_error_count: 10
 
       - name:  Grid Injection Power Limit Setting  #[0.0%-100.0%]
-        unique_id: _grid_injection_power_limit_setting #RW
+        unique_id: grid_injection_power_limit_setting #RW
         slave: 252
         address: 25103
         input_type: holding
@@ -889,7 +889,7 @@ modbus:
         scan_interval: 110
         lazy_error_count: 10
       - name:  On-grid Battery End SOC  #[0.0%-100.0%]
-        unique_id: _on_grid_battery_end_soc #RW
+        unique_id: on_grid_battery_end_soc #RW
         slave: 252
         address: 52503
         input_type: holding
@@ -899,7 +899,7 @@ modbus:
         scan_interval: 360
         lazy_error_count: 10
       - name:  Off-grid Battery End SOC  #[0.0%-100.0%]
-        unique_id: _off_grid_battery_end_soc #RW
+        unique_id: off_grid_battery_end_soc #RW
         slave: 252
         address: 52505
         input_type: holding
@@ -909,7 +909,7 @@ modbus:
         scan_interval: 360
         lazy_error_count: 10
       - name:  RW BMS Status #Table 3.8
-        unique_id: _rw_bms_status
+        unique_id: rw_bms_status
         slave: 252
         address: 53508
         input_type: holding
@@ -917,7 +917,7 @@ modbus:
         scan_interval: 60
         lazy_error_count: 10
       - name:  RW BMS ErrorCode #Table 3.9
-        unique_id: _rw_bms_errorcode
+        unique_id: rw_bms_errorcode
         slave: 252
         address: 53509
         input_type: holding
@@ -925,7 +925,7 @@ modbus:
         scan_interval: 60
         lazy_error_count: 10
       - name:  RW BMS ProtectionCode #Table 3.9
-        unique_id: _rw_bms_protectioncode
+        unique_id: rw_bms_protectioncode
         slave: 252
         address: 53511
         input_type: holding
@@ -933,7 +933,7 @@ modbus:
         scan_interval: 60
         lazy_error_count: 10
       - name:  RW BMS WarnCode #Table 3.9
-        unique_id: _rw_bms_warncode
+        unique_id: rw_bms_warncode
         slave: 252
         address: 53513
         input_type: holding
@@ -943,7 +943,7 @@ modbus:
 
       - name:  Ecomode Period Enable Flag #bit0- bit5 stands for period1-period6, bit7-bit15 reserved; 0: disable 1: enable
       #1=one line; #3=2 lines; 7=4lines; 15=5lines; 31=6lines
-        unique_id: _ecomode_period_enable_flag
+        unique_id: ecomode_period_enable_flag
         slave: 252
         address: 53006
         input_type: holding
@@ -951,7 +951,7 @@ modbus:
         scan_interval: 60
         lazy_error_count: 10
       - name:  Ecomode Period1 Struct
-        unique_id: _ecomode_period1_struct
+        unique_id: ecomode_period1_struct
         slave: 252
         address: 53007
         input_type: holding
@@ -961,7 +961,7 @@ modbus:
         scan_interval: 60
         lazy_error_count: 10
       - name:  Ecomode Period2 Struct
-        unique_id: _ecomode_period2_struct
+        unique_id: ecomode_period2_struct
         slave: 252
         address: 53014
         input_type: holding
@@ -989,55 +989,55 @@ modbus:
 sensor:
   - platform: template
     sensors:
-      _battery_mode_text:
+      battery_mode_text:
          friendly_name:  Battery Mode
-         unique_id: _battery_mode_text
+         unique_id: battery_mode_text
          value_template: >
-            {% if states('sensor._battery_mode') == '0' %}
+            {% if states('sensor.battery_mode') == '0' %}
                 discharge
             {% else %}
                 charge
             {% endif %}
-      _hybrid_inverter_working_mode_setting_text:
+      hybrid_inverter_working_mode_setting_text:
          friendly_name:  Hybrid Inverter Working Mode
          value_template: >
-            {% if states('sensor._hybrid_inverter_working_mode_setting') == '257' %}
+            {% if states('sensor.hybrid_inverter_working_mode_setting') == '257' %}
                 General mode
-            {% elif states('sensor._hybrid_inverter_working_mode_setting') == '258' %}
+            {% elif states('sensor.hybrid_inverter_working_mode_setting') == '258' %}
                 Economic mode
-            {% elif states('sensor._hybrid_inverter_working_mode_setting') == '259' %}
+            {% elif states('sensor.hybrid_inverter_working_mode_setting') == '259' %}
                 UPS mode
-            {% elif states('sensor._hybrid_inverter_working_mode_setting') == '512' %}
+            {% elif states('sensor.hybrid_inverter_working_mode_setting') == '512' %}
                 Offgrid mode
             {% endif %}
-      _inverter_running_status_text:
+      inverter_running_status_text:
          friendly_name:  Inverter Running Status
          value_template: >
-            {% if states('sensor._inverter_running_status') == '0' %}
+            {% if states('sensor.inverter_running_status') == '0' %}
                 wait
-            {% elif states('sensor._inverter_running_status') == '1' %}
+            {% elif states('sensor.inverter_running_status') == '1' %}
                 check
-            {% elif states('sensor._inverter_running_status') == '2' %}
+            {% elif states('sensor.inverter_running_status') == '2' %}
                 On Grid
-            {% elif states('sensor._inverter_running_status') == '3' %}
+            {% elif states('sensor.inverter_running_status') == '3' %}
                 fault
-            {% elif states('sensor._inverter_running_status') == '4' %}
+            {% elif states('sensor.inverter_running_status') == '4' %}
                 flash
-            {% elif states('sensor._inverter_running_status') == '5' %}
+            {% elif states('sensor.inverter_running_status') == '5' %}
                 Off Grid
             {% endif %}
-      _battery_soc_eta:
+      battery_soc_eta:
          friendly_name:  Battery SOC ETA
-         unique_id: _battery_soc_eta
+         unique_id: battery_soc_eta
          value_template: >
-            {% set battery_SOC = float(states("sensor._battery_soc"), default=100) %}
-            {% set battery_SOC_last = float(states("sensor._battery_soc_5min_state"), default=0) %}
-            {% set timediff = (states.sensor._battery_soc.last_updated.timestamp() - as_datetime(states("sensor._battery_soc_5min_last_updated")).timestamp())/60 %}
+            {% set battery_SOC = float(states("sensor.battery_soc"), default=100) %}
+            {% set battery_SOC_last = float(states("sensor.battery_soc_5min_state"), default=0) %}
+            {% set timediff = (states.sensor.battery_soc.last_updated.timestamp() - as_datetime(states("sensor.battery_soc_5min_last_updated")).timestamp())/60 %}
             {% set percdiff = battery_SOC - battery_SOC_last %}
             {% if battery_SOC>99: %}
                 full
             {% elif percdiff==0 or timediff==0: %}
-                {{ states('sensor._battery_soc_eta') }}
+                {{ states('sensor.battery_soc_eta') }}
             {% elif battery_SOC<=20: %}
                 almost dicharged
             {% elif percdiff<=0: %}
@@ -1049,14 +1049,14 @@ sensor:
                 {% set timemissing = (percmissing / (percdiff/timediff))|round  %}
                 ↑{{ as_local(as_datetime(as_timestamp(utcnow()) + timemissing*60)).strftime("%Y-%M-%d %H:%M") }}↑
             {% endif %}
-      _grid_injection_energy_on_that_day_15min:   #sell in last 15min
+      grid_injection_energy_on_that_day_15min:   #sell in last 15min
          friendly_name:  Grid Injection 15min
-         unique_id: _grid_injection_energy_on_that_day_15min
+         unique_id: grid_injection_energy_on_that_day_15min
          unit_of_measurement: kW
          device_class: power
          value_template: >
-            {% set diff = (float(states("sensor._grid_injection_energy_on_that_day"), default=0) - float(states("sensor._grid_injection_energy_on_that_day_15min_state"), default=0) ) %}
-            {% set timediff = (states.sensor._grid_injection_energy_on_that_day.last_updated.timestamp() - as_datetime(states("sensor._grid_injection_energy_on_that_day_15min_last_updated")).timestamp())/60 %}
+            {% set diff = (float(states("sensor.grid_injection_energy_on_that_day"), default=0) - float(states("sensor.grid_injection_energy_on_that_day_15min_state"), default=0) ) %}
+            {% set timediff = (states.sensor.grid_injection_energy_on_that_day.last_updated.timestamp() - as_datetime(states("sensor.grid_injection_energy_on_that_day_15min_last_updated")).timestamp())/60 %}
             {% if timediff==0 or diff<=0: %}
                 {{ float(0) }}
             {% else %}
@@ -1069,96 +1069,96 @@ sensor:
             {% endif %}
          attribute_templates:
            diff: >
-            {% set diff = (float(states("sensor._grid_injection_energy_on_that_day"), default=0) - float(states("sensor._grid_injection_energy_on_that_day_15min_state"), default=0) ) %}
+            {% set diff = (float(states("sensor.grid_injection_energy_on_that_day"), default=0) - float(states("sensor.grid_injection_energy_on_that_day_15min_state"), default=0) ) %}
             {{ diff }}
            timediff: >
-            {% set timediff = (states.sensor._grid_injection_energy_on_that_day.last_updated.timestamp() - as_datetime(states("sensor._grid_injection_energy_on_that_day_15min_last_updated")).timestamp())/60 %}
+            {% set timediff = (states.sensor.grid_injection_energy_on_that_day.last_updated.timestamp() - as_datetime(states("sensor.grid_injection_energy_on_that_day_15min_last_updated")).timestamp())/60 %}
             {{ timediff }}           
-      _home_consumption_now:
+      home_consumption_now:
          friendly_name:  Home Consumption Now
-         unique_id: _home_consumption_now
+         unique_id: home_consumption_now
          unit_of_measurement: kW
          device_class: power
          value_template: >
-            {% set diff = (float(states("sensor._p_ac"), default=0) 
-                         - float(states("sensor._total_power_on_meter"), default=0)) | round(3) %}
+            {% set diff = (float(states("sensor.p_ac"), default=0) 
+                         - float(states("sensor.total_power_on_meter"), default=0)) | round(3) %}
             {% if diff>0: %}
                 {{ diff }}
             {% else %}
-                {{ (float(states("sensor._home_consumption_now"), default=0)) }}
+                {{ (float(states("sensor.home_consumption_now"), default=0)) }}
             {% endif %}
          
-      _home_consumption_today:
+      home_consumption_today:
          friendly_name:  Home Consumption Today
-         unique_id: _home_consumption_today
+         unique_id: home_consumption_today
          unit_of_measurement: kWh
          device_class: energy
-         value_template: '{{ float(states(''sensor._loading_energy_on_that_day''), default= float(states(''sensor._home_consumption_today''), default=-10)) 
-                         + float(states(''sensor._backup_output_energy_on_that_day''), default=0) }}'
-      _home_consumption_today2:
+         value_template: '{{ float(states(''sensor.loading_energy_on_that_day''), default= float(states(''sensor.home_consumption_today''), default=-10)) 
+                         + float(states(''sensor.backup_output_energy_on_that_day''), default=0) }}'
+      home_consumption_today2:
          friendly_name:  Home Consumption Today2
-         unique_id: _home_consumption_today2
+         unique_id: home_consumption_today2
          unit_of_measurement: kWh
          device_class: energy
-         value_template: '{{ (float(states(''sensor._pv_generation_energy_on_that_day''), default= float(states(''sensor._home_consumption_today2''), default=-10)) 
-                         + float(states(''sensor._grid_purchasing_energy_on_that_day''), default=0)
-                         - float(states(''sensor._grid_injection_energy_on_that_day''), default=0)
-                         - float(states(''sensor._battery_charge_energy_on_that_day''), default=0) 
-                         + float(states(''sensor._battery_discharge_energy_on_that_day''), default=0)) | round(3) }}'
+         value_template: '{{ (float(states(''sensor.pv_generation_energy_on_that_day''), default= float(states(''sensor.home_consumption_today2''), default=-10)) 
+                         + float(states(''sensor.grid_purchasing_energy_on_that_day''), default=0)
+                         - float(states(''sensor.grid_injection_energy_on_that_day''), default=0)
+                         - float(states(''sensor.battery_charge_energy_on_that_day''), default=0) 
+                         + float(states(''sensor.battery_discharge_energy_on_that_day''), default=0)) | round(3) }}'
 
-      _battery_p_w:
+      battery_p_w:
          friendly_name:  Battery P Watt
-         unique_id: _battery_p_w
+         unique_id: battery_p_w
          unit_of_measurement: W
          device_class: power
-         value_template: '{{ (states(''sensor._battery_p'')|float(0)*1000)|round(0) }}'
-      _total_power_on_meter_w:
+         value_template: '{{ (states(''sensor.battery_p'')|float(0)*1000)|round(0) }}'
+      total_power_on_meter_w:
          friendly_name:  Total Power On Meter Watt
-         unique_id: _total_power_on_meter_w
+         unique_id: total_power_on_meter_w
          unit_of_measurement: W
          device_class: power
-         value_template: '{{ (states(''sensor._total_power_on_meter'')|float(0)*-1000)|round(0) }}'
-      _pv1_input_power_w:
+         value_template: '{{ (states(''sensor.total_power_on_meter'')|float(0)*-1000)|round(0) }}'
+      pv1_input_power_w:
          friendly_name:  PV1 Input Power Watt
-         unique_id: _pv1_input_power_w
+         unique_id: pv1_input_power_w
          unit_of_measurement: W
          device_class: power
-         value_template: '{{ (states(''sensor._pv1_input_power'')|float(0)*1000)|round(0) }}'
-      _pv2_input_power_w:
+         value_template: '{{ (states(''sensor.pv1_input_power'')|float(0)*1000)|round(0) }}'
+      pv2_input_power_w:
          friendly_name:  PV2 Input Power Watt
-         unique_id: _pv2_input_power_w
+         unique_id: pv2_input_power_w
          unit_of_measurement: W
          device_class: power
-         value_template: '{{ (states(''sensor._pv2_input_power'')|float(0)*1000)|round(0) }}'
-      _home_consumption_now_w:
+         value_template: '{{ (states(''sensor.pv2_input_power'')|float(0)*1000)|round(0) }}'
+      home_consumption_now_w:
          friendly_name:  Home Consumption Now Watt
-         unique_id: _home_consumption_now_w
+         unique_id: home_consumption_now_w
          unit_of_measurement: W
          device_class: power
-         value_template: '{{ (states(''sensor._home_consumption_now'')|float(0)*1000)|round(0) }}'
-      _phase_a_power_on_meter_w:
+         value_template: '{{ (states(''sensor.home_consumption_now'')|float(0)*1000)|round(0) }}'
+      phase_a_power_on_meter_w:
          friendly_name:  Phase A Power on Meter Watt
-         unique_id: _phase_a_power_on_meter_w
+         unique_id: phase_a_power_on_meter_w
          unit_of_measurement: W
          device_class: power
-         value_template: '{{ (states(''sensor._phase_a_power_on_meter'')|float(0)*1000)|round(0) }}'
-      _phase_b_power_on_meter_w:
+         value_template: '{{ (states(''sensor.phase_a_power_on_meter'')|float(0)*1000)|round(0) }}'
+      phase_b_power_on_meter_w:
          friendly_name:  Phase B Power on Meter Watt
-         unique_id: _phase_b_power_on_meter_w
+         unique_id: phase_b_power_on_meter_w
          unit_of_measurement: W
          device_class: power
-         value_template: '{{ (states(''sensor._phase_b_power_on_meter'')|float(0)*1000)|round(0) }}'
-      _phase_c_power_on_meter_w:
+         value_template: '{{ (states(''sensor.phase_b_power_on_meter'')|float(0)*1000)|round(0) }}'
+      phase_c_power_on_meter_w:
          friendly_name:  Phase C Power on Meter Watt
-         unique_id: _phase_c_power_on_meter_w
+         unique_id: phase_c_power_on_meter_w
          unit_of_measurement: W
          device_class: power
-         value_template: '{{ (states(''sensor._phase_c_power_on_meter'')|float(0)*1000)|round(0) }}'
-      _sunsync_grid_connected:
+         value_template: '{{ (states(''sensor.phase_c_power_on_meter'')|float(0)*1000)|round(0) }}'
+      sunsync_grid_connected:
          friendly_name:  Sunsync Grid Connected
-         unique_id: _sunsync_grid_connected
+         unique_id: sunsync_grid_connected
          value_template: >
-           {% if states('sensor._inverter_running_status') == '2' %} 
+           {% if states('sensor.inverter_running_status') == '2' %} 
               1
            {% else %}
               0
@@ -1169,31 +1169,31 @@ sensor:
 #druhy riadok 3 - 2,65535,65535,860,65535,0,256; cas je 00:00-01:00
 #druhy riadok 3 - 2,65535,65535,860,65535,512,768; cas je 02:00-03:00
 #
-      _ecomode_period1_chargedischarge_setting:
+      ecomode_period1_chargedischarge_setting:
          friendly_name:  Ecomode Period1 ChargeDischarge Setting #Period1: 0:NONE 1:charge 2:discharge
-         unique_id: _ecomode_period1_chargedischarge_setting
-         value_template: '{{ states(''sensor._ecomode_period1_struct'').split('','')[0]|default(-1) }}'
-      _ecomode_period1_battery_charge_by:   
+         unique_id: ecomode_period1_chargedischarge_setting
+         value_template: '{{ states(''sensor.ecomode_period1_struct'').split('','')[0]|default(-1) }}'
+      ecomode_period1_battery_charge_by:   
          friendly_name:  Ecomode Period1 Battery Charge By #0:PV 1:PV+GRID
-         unique_id: _ecomode_period1_battery_charge_by
-         value_template: '{{ states(''sensor._ecomode_period1_struct'').split('','')[1]|default(-1) }}'
-      _ecomode_period1_power_limit:   
+         unique_id: ecomode_period1_battery_charge_by
+         value_template: '{{ states(''sensor.ecomode_period1_struct'').split('','')[1]|default(-1) }}'
+      ecomode_period1_power_limit:   
          friendly_name:  Ecomode Period1 Power Limit #[0.0-100.0%]
-         unique_id: _ecomode_period1_power_limit
+         unique_id: ecomode_period1_power_limit
          unit_of_measurement: '%'
-         value_template: '{{ states(''sensor._ecomode_period1_struct'').split('','')[3]|float(0)/10|default(-1) }}'
-      _ecomode_period1_start_time:
+         value_template: '{{ states(''sensor.ecomode_period1_struct'').split('','')[3]|float(0)/10|default(-1) }}'
+      ecomode_period1_start_time:
          friendly_name:  Ecomode Period1 Start Time #High 8bits(Hour):[0,23] Low 8bits(Mins):[0,59]
-         unique_id: _ecomode_period1_start_time
-         value_template: '{{ ((states(''sensor._ecomode_period1_struct'').split('','')[5]|int//256)|string).zfill(2) }}:{{ ((states(''sensor._ecomode_period1_struct'').split('','')[5]|int%256)|string).zfill(2) }}'
-      _ecomode_period1_end_time:
+         unique_id: ecomode_period1_start_time
+         value_template: '{{ ((states(''sensor.ecomode_period1_struct'').split('','')[5]|int//256)|string).zfill(2) }}:{{ ((states(''sensor.ecomode_period1_struct'').split('','')[5]|int%256)|string).zfill(2) }}'
+      ecomode_period1_end_time:
          friendly_name:  Ecomode Period1 End Time #High 8bits(Hour):[0,23] Low 8bits(Mins):[0,59]
-         unique_id: _ecomode_period1_end_time
-         value_template: '{{ ((states(''sensor._ecomode_period1_struct'').split('','')[6]|int//256)|string).zfill(2) }}:{{ ((states(''sensor._ecomode_period1_struct'').split('','')[6]|int%256)|string).zfill(2) }}'
-      _ecomode_period_enable_flag_bin:
+         unique_id: ecomode_period1_end_time
+         value_template: '{{ ((states(''sensor.ecomode_period1_struct'').split('','')[6]|int//256)|string).zfill(2) }}:{{ ((states(''sensor.ecomode_period1_struct'').split('','')[6]|int%256)|string).zfill(2) }}'
+      ecomode_period_enable_flag_bin:
          friendly_name:  Ecomode Period Enable Flag Binary
-         unique_id: _ecomode_period_enable_flag_bin
-         value_template: '{{ (''{:b}''.format(states(''sensor._ecomode_period_enable_flag'')|int)).ljust(6, ''0'') }}'
+         unique_id: ecomode_period_enable_flag_bin
+         value_template: '{{ (''{:b}''.format(states(''sensor.ecomode_period_enable_flag'')|int)).ljust(6, ''0'') }}'
 
 
 #Normal help
@@ -1247,22 +1247,22 @@ automation:
   description: turn on General mode => when battery full, energy goes also to grid
   trigger:
   - platform: numeric_state
-    entity_id: sensor._battery_soc
+    entity_id: sensor.battery_soc
     above: 99.8
   - platform: numeric_state
-    entity_id: sensor._battery_soc
+    entity_id: sensor.battery_soc
     below: 30
   - platform: numeric_state
-    entity_id: sensor._battery_soc
+    entity_id: sensor.battery_soc
     below: 25
   condition:
   - condition: not
     conditions:
     - condition: state
-      entity_id: sensor._hybrid_inverter_working_mode_setting_text
+      entity_id: sensor.hybrid_inverter_working_mode_setting_text
       state: General mode
   action:
-  - service: script._mode_general
+  - service: script.mode_general
     data: {}
     enabled: false
   mode: single
@@ -1275,20 +1275,20 @@ automation:
     offset: -01:00:00
   condition:
   - condition: numeric_state
-    entity_id: sensor._battery_soc
+    entity_id: sensor.battery_soc
     above: 60
   - condition: state
-    entity_id: sensor._hybrid_inverter_working_mode_setting_text
+    entity_id: sensor.hybrid_inverter_working_mode_setting_text
     state: General mode
   action:
-  - service: script._mode_offgrid
+  - service: script.mode_offgrid
     data: {}
     enabled: false
   mode: single
 
 script:
-  _mode_ups:
-    alias: _mode_ups
+  mode_ups:
+    alias: mode_ups
     sequence:
     - service: modbus.write_register
       data:
@@ -1298,8 +1298,8 @@ script:
         value: 259
     mode: single
     icon: mdi:alpha-w-box
-  _mode_economic:
-    alias: _mode_economic
+  mode_economic:
+    alias: mode_economic
     sequence:
     - service: modbus.write_register
       data:
@@ -1309,8 +1309,8 @@ script:
         value: 258
     mode: single
     icon: mdi:alpha-w-box
-  _mode_general:
-    alias: _mode_general
+  mode_general:
+    alias: mode_general
     sequence:
     - service: modbus.write_register
       data:
@@ -1320,8 +1320,8 @@ script:
         value: 257
     mode: single
     icon: mdi:alpha-w-box
-  _mode_offgrid:
-    alias: _mode_offgrid
+  mode_offgrid:
+    alias: mode_offgrid
     sequence:
     - service: modbus.write_register
       data:
@@ -1331,7 +1331,7 @@ script:
         value: 512
     mode: single
     icon: mdi:alpha-w-box
-  # _set_grid_injection_power_limit_switch:
+  # set_grid_injection_power_limit_switch:
     # alias:  Set Grid Injection Power Limit Switch
     # sequence:
     # - service: modbus.write_register
@@ -1343,7 +1343,7 @@ script:
     # mode: single
     # icon: mdi:alpha-w-box
     
-  _set_grid_injection_power_limit_setting:
+  set_grid_injection_power_limit_setting:
     alias:  Set Grid Injection Power Limit Setting
     sequence:
     - service: modbus.write_register
@@ -1355,8 +1355,8 @@ script:
     mode: single
     icon: mdi:alpha-w-box
 
-  _charge_battery_from_grid:
-    alias: _charge_battery_from_grid
+  charge_battery_from_grid:
+    alias: charge_battery_from_grid
     sequence:
     - service: modbus.write_register
       data:
@@ -1377,12 +1377,12 @@ script:
         - 65535
         - 0
         - 5947
-    - service: script._mode_economic
+    - service: script.mode_economic
       data: {}
     - wait_for_trigger:
       - platform: state
         entity_id:
-        - sensor._hybrid_inverter_working_mode_setting
+        - sensor.hybrid_inverter_working_mode_setting
         to: '258'
       timeout:
         hours: 0
@@ -1391,13 +1391,13 @@ script:
         milliseconds: 0
     - if:
       - condition: state
-        entity_id: sensor._battery_mode   #0:discharge;1:charge
+        entity_id: sensor.battery_mode   #0:discharge;1:charge
         state: '0'
       then:
       - wait_for_trigger:
         - platform: state
           entity_id:
-          - sensor._battery_mode
+          - sensor.battery_mode
           to: '1'
         timeout:
           hours: 0
@@ -1407,14 +1407,14 @@ script:
     - wait_for_trigger:
       - platform: state
         entity_id:
-        - sensor._battery_mode
+        - sensor.battery_mode
         to: '0'
       timeout:
         hours: 3
         minutes: 0
         seconds: 0
         milliseconds: 0
-    - service: script._mode_general
+    - service: script.mode_general
       data: {}
     mode: single
  
