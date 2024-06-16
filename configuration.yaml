@@ -13,4 +13,4 @@ scene: !include scenes.yaml
 homeassistant:
   packages:
     mtec: !include mtec.yaml
-
+    mtec_db: !include mtec_sql_postgre.yaml
