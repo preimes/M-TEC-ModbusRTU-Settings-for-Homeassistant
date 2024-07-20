@@ -2,7 +2,7 @@ modbus:
   - name: M-TEC
     type: rtuovertcp
     host: IP_OF_YOUR_INVERTER!
-    port: 5743
+    port: 5743 #M-TEC changed their Modbus to Port 502 with firmware V27.52.4.0!
     timeout: 5
     # type: serial
     # baudrate: 9600
