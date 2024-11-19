@@ -75,7 +75,6 @@ modbus:
         count: 10
         data_type: string
         scan_interval: 86400
-        #lazy_error_count: 10
       - name:  Firmware Version1
         unique_id: firmware_version1
         slave: 252
@@ -85,7 +84,6 @@ modbus:
         data_type: custom
         structure: ">BBBB"
         scan_interval: 600
-        #lazy_error_count: 10
       - name:  Firmware Version2
         unique_id: firmware_version2
         slave: 252
@@ -95,7 +93,6 @@ modbus:
         data_type: custom
         structure: ">BBBB"
         scan_interval: 60
-        #lazy_error_count: 10
 
       - name:  Inverter Running Status #0:wait, wait for on-grid 1:check, self-check 2:On Grid 3:fault 4:flash, firmware update 5.Off Grid
         unique_id: inverter_running_status
@@ -104,7 +101,6 @@ modbus:
         input_type: holding
         data_type: int16
         scan_interval: 10
-        #lazy_error_count: 10
       - name:  Phase A Power on Meter
         unique_id: phase_a_power_on_meter
         slave: 252
@@ -117,7 +113,6 @@ modbus:
         precision: 3
         data_type: int32
         scan_interval: 10
-        lazy_error_count: 10
       - name:  Phase B Power on Meter
         unique_id: phase_b_power_on_meter
         slave: 252
@@ -130,7 +125,6 @@ modbus:
         precision: 3
         data_type: int32
         scan_interval: 10
-        lazy_error_count: 10
       - name:  Phase C Power on Meter
         unique_id: phase_c_power_on_meter
         slave: 252
@@ -143,7 +137,6 @@ modbus:
         precision: 3
         data_type: int32
         scan_interval: 10
-        lazy_error_count: 10
       - name:  Total Power on Meter        #Grid power
         unique_id: total_power_on_meter
         slave: 252
@@ -156,7 +149,6 @@ modbus:
         precision: 3
         data_type: int32
         scan_interval: 10
-        lazy_error_count: 10
 
       - name:  Grid Injection Energy on that day   #export/day
         unique_id: grid_injection_energy_on_that_day
@@ -170,7 +162,6 @@ modbus:
         device_class: energy
         data_type: int16
         scan_interval: 60
-        lazy_error_count: 10
       - name:  Grid Purchasing Energy on that day
         unique_id: grid_purchasing_energy_on_that_day
         slave: 252
@@ -183,7 +174,6 @@ modbus:
         device_class: energy
         data_type: int16
         scan_interval: 60
-        lazy_error_count: 10
       - name:  Backup Output Energy on that day
         unique_id: backup_output_energy_on_that_day
         slave: 252
@@ -196,7 +186,6 @@ modbus:
         device_class: energy
         data_type: int16
         scan_interval: 300
-        lazy_error_count: 10
       - name:  Battery Charge Energy on that day
         unique_id: battery_charge_energy_on_that_day
         slave: 252
@@ -209,7 +198,6 @@ modbus:
         device_class: energy
         data_type: int16
         scan_interval: 60
-        lazy_error_count: 10
       - name:  Battery Discharge Energy on that day
         unique_id: battery_discharge_energy_on_that_day
         slave: 252
@@ -222,7 +210,6 @@ modbus:
         device_class: energy
         data_type: int16
         scan_interval: 60
-        lazy_error_count: 10
       - name:  PV Generation Energy on that day    #E-today from GUI
         unique_id: pv_generation_energy_on_that_day
         slave: 252
@@ -235,7 +222,6 @@ modbus:
         device_class: energy
         data_type: int16
         scan_interval: 60
-        lazy_error_count: 10
       - name:  Loading Energy on that day
         unique_id: loading_energy_on_that_day
         slave: 252
@@ -248,7 +234,6 @@ modbus:
         device_class: energy
         data_type: int16
         scan_interval: 300
-        lazy_error_count: 10
       - name:  Energy Purchased from Grid on that day  #on inverter side
         unique_id: energy_purchased_from_grid_on_that_day
         slave: 252
@@ -261,7 +246,6 @@ modbus:
         device_class: energy
         data_type: int16
         scan_interval: 300
-        lazy_error_count: 10
       - name:  Total Energy injected to grid
         unique_id: total_energy_injected_to_grid
         slave: 252
@@ -274,7 +258,6 @@ modbus:
         device_class: energy
         data_type: int32
         scan_interval: 600
-        lazy_error_count: 10
       - name:  Total Energy Purchased from Grid from Meter
         unique_id: total_energy_purchased_from_grid_from_meter
         slave: 252
@@ -287,7 +270,6 @@ modbus:
         device_class: energy
         data_type: int32
         scan_interval: 600
-        lazy_error_count: 10
       - name:  Total Output Energy on backup port
         unique_id: total_output_energy_on_backup_port
         slave: 252
@@ -300,7 +282,6 @@ modbus:
         device_class: energy
         data_type: int32
         scan_interval: 3600
-        lazy_error_count: 10
       - name:  Total Energy Charged to Battery
         unique_id: total_energy_charged_to_battery
         slave: 252
@@ -313,7 +294,6 @@ modbus:
         device_class: energy
         data_type: int32
         scan_interval: 600
-        lazy_error_count: 10
       - name:  Total Energy Discharged from Battery
         unique_id: total_energy_discharged_from_battery
         slave: 252
@@ -326,7 +306,6 @@ modbus:
         device_class: energy
         data_type: int32
         scan_interval: 600
-        lazy_error_count: 10
       - name:  Total PV Generation
         unique_id: total_pv_generation
         slave: 252
@@ -339,7 +318,6 @@ modbus:
         device_class: energy
         data_type: int32
         scan_interval: 600
-        lazy_error_count: 10
       - name:  Total Loading Energy consumed at grid side  #totoal load consumption
         unique_id: total_loading_energy_consumed_at_grid_side
         slave: 252
@@ -352,7 +330,6 @@ modbus:
         device_class: energy
         data_type: int32
         scan_interval: 3600
-        lazy_error_count: 10
       - name:  Total Energy Purchased from Grid at inverter side
         unique_id: total_energy_purchased_from_grid_at_inverter_side
         slave: 252
@@ -365,7 +342,6 @@ modbus:
         device_class: energy
         data_type: int32
         scan_interval: 3600
-        lazy_error_count: 10
 
       - name:  Total Grid-Injection Energy on Meter
         unique_id: total_grid_injection_energy_on_meter
@@ -379,7 +355,6 @@ modbus:
         precision: 2
         data_type: int32
         scan_interval: 3600
-        lazy_error_count: 10
       - name:  Total Purchasing Energy from Grid on Meter
         unique_id: total_purchasing_energy_from_grid_on_meter
         slave: 252
@@ -392,7 +367,6 @@ modbus:
         precision: 2
         data_type: int32
         scan_interval: 3600
-        lazy_error_count: 10
 
       - name:  Grid Lines A/B Voltage
         unique_id: grid_lines_a_b_voltage
@@ -406,7 +380,6 @@ modbus:
         precision: 1
         data_type: int16
         scan_interval: 60
-        lazy_error_count: 10
       - name:  Grid Lines B/C Voltage
         unique_id: grid_lines_b_c_voltage
         slave: 252
@@ -419,7 +392,6 @@ modbus:
         precision: 1
         data_type: int16
         scan_interval: 60
-        lazy_error_count: 10
       - name:  Grid Lines C/A Voltage
         unique_id: grid_lines_c_a_voltage
         slave: 252
@@ -432,7 +404,6 @@ modbus:
         precision: 1
         data_type: int16        
         scan_interval: 60
-        lazy_error_count: 10
       - name:  Grid Phase A Voltage
         unique_id: grid_phase_a_voltage
         slave: 252
@@ -445,7 +416,6 @@ modbus:
         precision: 1
         data_type: int16
         scan_interval: 60
-        lazy_error_count: 10
       - name:  Grid Phase B Voltage
         unique_id: grid_phase_b_voltage
         slave: 252
@@ -458,7 +428,6 @@ modbus:
         precision: 1
         data_type: int16
         scan_interval: 60
-        lazy_error_count: 10
       - name:  Grid Phase C Voltage
         unique_id: grid_pase_c_voltage
         slave: 252
@@ -471,7 +440,6 @@ modbus:
         precision: 1
         data_type: int16
         scan_interval: 60
-        lazy_error_count: 10
       - name:  Grid Phase A Current
         unique_id: grid_phase_a_current
         slave: 252
@@ -484,7 +452,6 @@ modbus:
         precision: 1
         data_type: int16
         scan_interval: 60
-        lazy_error_count: 10
       - name:  Grid Phase B Current
         unique_id: grid_phase_b_current
         slave: 252
@@ -497,7 +464,6 @@ modbus:
         precision: 1
         data_type: int16
         scan_interval: 60
-        lazy_error_count: 10
       - name:  Grid Phase C Current
         unique_id: grid_phase_c_current
         slave: 252
@@ -510,7 +476,6 @@ modbus:
         precision: 1
         data_type: int16
         scan_interval: 60
-        lazy_error_count: 10
       - name:  P AC
         unique_id: p_ac
         slave: 252
@@ -523,7 +488,6 @@ modbus:
         precision: 3
         data_type: int32
         scan_interval: 10
-        lazy_error_count: 10
       - name:  Total PV Generation on that day  #energy today
         unique_id: total_pv_generation_on_that_day
         slave: 252
@@ -536,7 +500,6 @@ modbus:
         precision: 1
         data_type: int32
         scan_interval: 1800
-        lazy_error_count: 10
       - name:  Total PV Generation from Installation  #energy total
         unique_id: total_pv_generation_from_installation
         slave: 252
@@ -549,7 +512,6 @@ modbus:
         precision: 1
         data_type: int32
         scan_interval: 3600
-        lazy_error_count: 10
       - name:  PV Input Total Power        #PV power, panel actual power
         unique_id: pv_input_total_power
         slave: 252
@@ -562,7 +524,6 @@ modbus:
         precision: 3
         data_type: int32
         scan_interval: 10
-        lazy_error_count: 10
       - name:  Temperature Sensor 1
         unique_id: temperature_sensor_1
         slave: 252
@@ -575,7 +536,6 @@ modbus:
         precision: 1
         data_type: int16
         scan_interval: 600
-        lazy_error_count: 10
       - name:  Temperature Sensor 2
         unique_id: temperature_sensor_2
         slave: 252
@@ -588,7 +548,6 @@ modbus:
         precision: 1
         data_type: int16
         scan_interval: 600
-        lazy_error_count: 10
       - name:  Temperature Sensor 3
         unique_id: temperature_sensor_3
         slave: 252
@@ -601,7 +560,6 @@ modbus:
         precision: 1
         data_type: int16
         scan_interval: 600
-        lazy_error_count: 10
       - name:  Temperature Sensor 4
         unique_id: temperature_sensor_4
         slave: 252
@@ -614,7 +572,6 @@ modbus:
         precision: 1
         data_type: int16
         scan_interval: 600
-        lazy_error_count: 10
       - name:  PV1 Voltage
         unique_id: pv1_voltage
         slave: 252
@@ -627,7 +584,6 @@ modbus:
         precision: 1
         data_type: int16
         scan_interval: 300
-        lazy_error_count: 10
       - name:  PV2 Voltage
         unique_id: pv2_voltage
         slave: 252
@@ -640,7 +596,6 @@ modbus:
         precision: 1
         data_type: int16
         scan_interval: 300
-        lazy_error_count: 10
       - name:  PV1 Current
         unique_id: pv1_current
         slave: 252
@@ -653,7 +608,6 @@ modbus:
         precision: 1
         data_type: int16
         scan_interval: 300
-        lazy_error_count: 10
       - name:  PV2 Current
         unique_id: pv2_current
         slave: 252
@@ -666,7 +620,6 @@ modbus:
         precision: 1
         data_type: int16
         scan_interval: 300
-        lazy_error_count: 10
       - name:  PV1 Input Power
         unique_id: pv1_input_power
         slave: 252
@@ -679,7 +632,6 @@ modbus:
         precision: 3
         data_type: int32
         scan_interval: 10
-        lazy_error_count: 10
       - name:  PV2 Input Power
         unique_id: pv2_input_power
         slave: 252
@@ -692,7 +644,6 @@ modbus:
         precision: 3
         data_type: int32
         scan_interval: 10
-        lazy_error_count: 10
       - name:  ARM Fault Flag1 #Table 3.3 Troubleshooting
         unique_id: arm_fault_flag1
         slave: 252
@@ -700,7 +651,6 @@ modbus:
         input_type: holding
         data_type: int32
         scan_interval: 60
-        lazy_error_count: 10
       - name:  Fault Flag1 #Table 3.3 Troubleshooting
         unique_id: fault_flag1
         slave: 252
@@ -708,7 +658,6 @@ modbus:
         input_type: holding
         data_type: int32
         scan_interval: 60
-        lazy_error_count: 10
       - name:  Fault Flag2 #Table 3.3 Troubleshooting
         unique_id: fault_flag2
         slave: 252
@@ -716,7 +665,6 @@ modbus:
         input_type: holding
         data_type: int32
         scan_interval: 60
-        lazy_error_count: 10
       - name:  Fault Flag3 #Table 3.3 Troubleshooting
         unique_id: fault_flag3
         slave: 252
@@ -724,7 +672,6 @@ modbus:
         input_type: holding
         data_type: int32
         scan_interval: 60
-        lazy_error_count: 10
         
       - name:  Total Backup P          #load power, total active power
         unique_id: total_backup_p
@@ -738,7 +685,6 @@ modbus:
         precision: 3
         data_type: int32
         scan_interval: 10
-        lazy_error_count: 10
 
       - name:  Battery V #DC Voltage
         unique_id: battery_v
@@ -752,7 +698,6 @@ modbus:
         precision: 1
         data_type: int16
         scan_interval: 300
-        lazy_error_count: 10
       - name:  Battery I #DC Current
         unique_id: battery_i
         slave: 252
@@ -765,7 +710,6 @@ modbus:
         precision: 1
         data_type: int16
         scan_interval: 300
-        lazy_error_count: 10
       - name:  Battery P           #Battery Power
         unique_id: battery_p
         slave: 252
@@ -778,7 +722,6 @@ modbus:
         precision: 3
         data_type: int32
         scan_interval: 10
-        lazy_error_count: 10
       - name:  Battery Mode #0:discharge;1:charge
         unique_id: battery_mode
         slave: 252
@@ -786,7 +729,6 @@ modbus:
         input_type: holding
         data_type: int16
         scan_interval: 10
-        lazy_error_count: 10
 #BMS registers
       - name:  BMS Software Version
         unique_id: bms_software_version
@@ -795,7 +737,6 @@ modbus:
         input_type: holding
         data_type: int16
         scan_interval: 600
-        lazy_error_count: 10
       - name:  BMS Hardware Version
         unique_id: bms_hardware_version
         slave: 252
@@ -803,7 +744,6 @@ modbus:
         input_type: holding
         data_type: int16
         scan_interval: 600
-        lazy_error_count: 10
       - name:  Battery SOC
         unique_id: battery_soc
         slave: 252
@@ -816,7 +756,6 @@ modbus:
         precision: 2
         data_type: int16
         scan_interval: 60
-        lazy_error_count: 10
       - name:  Battery SOH
         unique_id: battery_soh
         slave: 252
@@ -829,7 +768,6 @@ modbus:
         precision: 2
         data_type: int16
         scan_interval: 3600
-        lazy_error_count: 10
       - name:  BMS Status
         unique_id: bms_status
         slave: 252
@@ -837,7 +775,6 @@ modbus:
         input_type: holding
         data_type: int16
         scan_interval: 60
-        lazy_error_count: 10
       - name:  BMS Pack Temperature
         unique_id: bms_pack_temperature
         slave: 252
@@ -850,7 +787,6 @@ modbus:
         precision: 1
         data_type: int16
         scan_interval: 300
-        lazy_error_count: 10
       - name:  BMS Error Code
         unique_id: bms_error_code
         slave: 252
@@ -858,7 +794,6 @@ modbus:
         input_type: holding
         data_type: int32
         scan_interval: 60
-        lazy_error_count: 10
       - name:  BMS Warn Code
         unique_id: bms_warn_code
         slave: 252
@@ -866,7 +801,6 @@ modbus:
         input_type: holding
         data_type: int32
         scan_interval: 60
-        lazy_error_count: 10
 
 #RW values
       - name:  Hybrid Inverter Working Mode Setting  #257=General mode; 258=Economic mode; 259=UPS mode; 512=Off grid mode
@@ -876,7 +810,6 @@ modbus:
         input_type: holding
         data_type: int16
         scan_interval: 60
-        lazy_error_count: 10
 
       - name:  Grid Injection Power Limit Setting  #[0.0%-100.0%]
         unique_id: grid_injection_power_limit_setting #RW
@@ -887,7 +820,6 @@ modbus:
         precision: 1
         data_type: int16
         scan_interval: 110
-        lazy_error_count: 10
       - name:  On-grid Battery End SOC  #[0.0%-100.0%]
         unique_id: on_grid_battery_end_soc #RW
         slave: 252
@@ -897,7 +829,6 @@ modbus:
         precision: 1
         data_type: int16
         scan_interval: 360
-        lazy_error_count: 10
       - name:  Off-grid Battery End SOC  #[0.0%-100.0%]
         unique_id: off_grid_battery_end_soc #RW
         slave: 252
@@ -907,7 +838,6 @@ modbus:
         precision: 1
         data_type: int16
         scan_interval: 360
-        lazy_error_count: 10
       - name:  RW BMS Status #Table 3.8
         unique_id: rw_bms_status
         slave: 252
@@ -915,7 +845,6 @@ modbus:
         input_type: holding
         data_type: int16
         scan_interval: 60
-        lazy_error_count: 10
       - name:  RW BMS ErrorCode #Table 3.9
         unique_id: rw_bms_errorcode
         slave: 252
@@ -923,7 +852,6 @@ modbus:
         input_type: holding
         data_type: int32
         scan_interval: 60
-        lazy_error_count: 10
       - name:  RW BMS ProtectionCode #Table 3.9
         unique_id: rw_bms_protectioncode
         slave: 252
@@ -931,7 +859,6 @@ modbus:
         input_type: holding
         data_type: int32
         scan_interval: 60
-        lazy_error_count: 10
       - name:  RW BMS WarnCode #Table 3.9
         unique_id: rw_bms_warncode
         slave: 252
@@ -939,7 +866,6 @@ modbus:
         input_type: holding
         data_type: int32
         scan_interval: 60
-        lazy_error_count: 10
 
       - name:  Ecomode Period Enable Flag #bit0- bit5 stands for period1-period6, bit7-bit15 reserved; 0: disable 1: enable
       #1=one line; #3=2 lines; 7=4lines; 15=5lines; 31=6lines
@@ -949,7 +875,6 @@ modbus:
         input_type: holding
         data_type: int16
         scan_interval: 60
-        lazy_error_count: 10
       - name:  Ecomode Period1 Struct
         unique_id: ecomode_period1_struct
         slave: 252
@@ -959,7 +884,6 @@ modbus:
         data_type: custom
         structure: ">HHHHHHH"
         scan_interval: 60
-        lazy_error_count: 10
       - name:  Ecomode Period2 Struct
         unique_id: ecomode_period2_struct
         slave: 252
@@ -969,7 +893,6 @@ modbus:
         data_type: custom
         structure: ">HHHHHHH"
         scan_interval: 60
-        lazy_error_count: 10
 #how to write data:
 #service: modbus.write_register
 #data:
